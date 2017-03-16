@@ -1,10 +1,10 @@
 import { addClass, div } from '../builders';
 import { filterByType } from '../helpers';
-import menuList from '.menuList';
+import menuList from './menuList';
 
-export default function leftMenu(items = []) {
-	const appetizers  = menuList('Appetizers', filterByType(items, 'appetizer'));
-	const desserts = menuList('Desserts', filterByType(items, burger));
+export default function rightMenu(items = []) {
+	const soupSalad = menuList('Soups and Salads', filterByType(items, 'soup_salad'));
+	const desserts = menuList('Desserts', filterByType(items, 'dessert'));
 
-	return addClass(div(appetizer, burgers), 'column', 'is-6');
+	return addClass(div(soupSalad, desserts), 'column', 'is-6');
 }
