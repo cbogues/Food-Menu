@@ -24,6 +24,10 @@ export function nav(...children) {
 	return createElement('nav',...children);
 }
 
+export function ul(...children) {
+	return createElement('ul',...children);
+}
+
 export function section(...children) {
 	return createElement('section',...children);
 }
@@ -38,6 +42,10 @@ export function h1(...children) {
 
 export function article(...children) {
 	return createElement('article',...children);
+}
+
+export function footer(...children) {
+	return createElement('footer',...children);
 }
 
 export function h3(...children) {

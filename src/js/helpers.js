@@ -3,6 +3,6 @@ export function filterByType(items, type) {
 }
  // format price
 
- export function formatPrice(Price) {
+ export function formatPrice(price) {
  	return parseFloat(price).toFixed(2);
  }
