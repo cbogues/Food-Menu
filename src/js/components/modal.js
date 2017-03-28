@@ -9,11 +9,11 @@ export default function modal(items = []) {
 	if (items.length === 0) {
 		cart = p(text('Your cart is empty'));
 	} else {
-		const menuItems = items.map(modalItems);
-		cart = addClass(ul(..modalItems), 'menu');
+		const modalItems = items.map(modalItem);
+		cart = addClass(ul(...modalItems), 'menu');
 	}
 
-	const cartContainer = addId(div(cart), 'cart-item');
+	const cartContainer = addId(div(cart), 'cart-items');
 
 	const checkoutButton = addClass(button(text('Checkout')), 'button', 'is-fullwidth');
 
@@ -22,5 +22,5 @@ export default function modal(items = []) {
 	const modalEle = addId(addClass(section(modalContainer), 'modal'), 'modal');
 
 	return modalEle;
-	
+
 }

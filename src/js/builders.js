@@ -28,6 +28,10 @@ export function ul(...children) {
 	return createElement('ul',...children);
 }
 
+export function li(...children) {
+	return createElement('li',...children);
+}
+
 export function section(...children) {
 	return createElement('section',...children);
 }
