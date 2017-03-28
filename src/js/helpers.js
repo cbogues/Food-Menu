@@ -22,7 +22,14 @@ export function $(query) {
 		});
 	}
 
+	function on(event, cb) {
+		elements.forEach(ele => {
+			ele.addEventListener(event, cb);
+		});
+	}
+
 	return {
 		children,
+		on
 	};
 }
