@@ -12,6 +12,12 @@ export function filterByType(map, type) {
 export function $(query) {
 	const elements = Array.prototype.slice.call(document.querySelectorAll(query));
 
+	function on(event, cb) {
+		elements.forEach(ele => {
+			ele.addEventListener(event, cb);
+		});
+	}
+
 	function children(toAdd) {
 		elements.forEach(ele => {
 			while (ele.firstChild) {
@@ -22,14 +28,38 @@ export function $(query) {
 		});
 	}
 
-	function on(event, cb) {
+	function addClass(klass) {
 		elements.forEach(ele => {
-			ele.addEventListener(event, cb);
+			ele.classList.add(klass);
 		});
+	}
+
+	function removeClass(klass) {
+		elements.forEach(ele => {
+			ele.classList.remove(klass);
+		});
+	}
+
+	function attr(attribute, value) {
+		elements.forEach(ele => {
+			if (value === false) {
+				ele.removeAttribute(attribute);
+			}else {
+				ele.setAttribute(attribute, value);
+			}
+		});
+	}
+
+	function map(cb) {
+		return elements.map(cb);
 	}
 
 	return {
 		children,
-		on
+		on,
+		addClass,
+		removeClass,
+		attr,
+		map
 	};
 }

@@ -9,7 +9,7 @@ import modal from './modal';
 
 
 export default function app(store) {
-	const modalEle = modal();
+	const modalEle = modal(store);
 	const navbarEle = navbar();
 	const heroEle = hero();
 	const menuEle = menu(store);

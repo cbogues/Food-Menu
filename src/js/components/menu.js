@@ -13,5 +13,27 @@ export default function menu(store) {
 			$('#menu').children(columns);
 		});
 
+	store.on('ITEM_ADDED', ({ cart }) => {
+		const cartArray = [...cart];
+		const articles = cartArray.map(id => `article[data-key='${id}']`);
+		const buttons = cartArray.map(id => `article[data-key='${id}'] button.add-to-cart`);
+
+		$(articles.join(', ')).addClass('in-cart');
+		$(buttons.join(', ')).attr('disabled', 'disabled');		
+	});
+
+	store.on('ITEM_REMOVED', ({ cart }) => {
+		const onPageKeys = $('article.in-cart').map(ele => parseInt(ele.dataset.key, 10));
+		const inCartKeys = [...cart];
+		const keysToRemove = onPageKeys.filter(key => !inCartKeys.includes(key));
+
+		keysToRemove.forEach(key => {
+			$(`article[data-key='${key}']`).removeClass('in-cart');
+			$(`article[data-key='${key}'] button.add-to-cart`).attr('disabled', false);
+		});
+	});
+
+
+
 	return menuELe;
 }

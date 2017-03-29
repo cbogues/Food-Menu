@@ -11,7 +11,19 @@ function reducer(state, event, data) {
 					, {}),
 			});
 		case 'TOGGLE_SHOW_CART':
-			return Object.assign({}, state,)
+			return Object.assign({}, state, {
+				cartVisible: !state.cartVisible,
+			});
+		case 'ITEM_ADDED':
+		return Object.assign({}, state, {
+			cart: (new Set(state.cart)).add(data.item),
+		});	
+		case 'ITEM_REMOVED':
+			const newCart = (new Set(state.cart));
+			newCart.delete(data.item);
+			return Object.assign({}, state, {
+				cart: newCart,
+			});
 		default:
 			return state;
 	}
