@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="bundle.js"></script>
+    
+
+
+ <!-- FOR FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCg2cHy7q0RcsGP_cue5qYZdXx21CW1CUA",
+    authDomain: "food-menu-51e76.firebaseapp.com",
+    databaseURL: "https://food-menu-51e76.firebaseio.com",
+    projectId: "food-menu-51e76",
+    storageBucket: "food-menu-51e76.appspot.com",
+    messagingSenderId: "522185271325"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+
+
+ <script src="bundle.js"></script>
+
 </body>
 </html>
